@@ -1,27 +1,35 @@
 import socket
-import threading
-import time
 import sys
-import os
-import struct
 
-def socket_service()
+# Create a TCP/IP socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Bind the socket to the port
+server_address = ('localhost', 10000)
+print('starting up on {} port {}'.format(*server_address))
+sock.bind(server_address)
+
+# Listen for incoming connections
+sock.listen(1)
+
+while True:
+    # Wait for a connection
+    print('waiting for a connection')
+    connection, client_address = sock.accept()
     try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        s.bind(('127.0.0.1', 6666))
-        s.listen(10)
-    except socket.error as msg:
-        print msg
-        sys.exit(1)
-    print 'Waiting connection....'
+        print('connection from', client_address)
 
-    while 1:
-        fileinfo_size = struct.calcsize('128s1')
-        buf = conn.recv(fileinfo_size)
-        if buf:
-            filename, filesize = struct.unpack('128s1', buf)
-            fn = filename.strip('\00')
-            new_filename = os.path.join('./', 'new_' + fn)
-            print 'file new name is {0}，filesizeif{1}'.format(new_filename, fileinfo_size)
-            
+        # Receive the data in small chunks and retransmit it
+        while True:
+            data = connection.recv(16)
+            print('received {!r}'.format(data))
+            if data:
+                print('sending data back to the client')
+                connection.sendall(data)
+            else:
+                print('no data from', client_address)
+                break
+
+    finally:
+        # Clean up the connection
+        connection.close()
