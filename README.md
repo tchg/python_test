@@ -21,3 +21,5 @@ RDP协议我在MSDN里看过了，它是用于处理数据传输部分的，我�
 截屏算法        
 http://www.dewen.net.cn/q/484/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%80%9F%E5%B1%8F%E5%B9%95%E4%BC%A0%E9%80%81%E7%AE%97%E6%B3%95%EF%BC%9F     
 
+https://zhuanlan.zhihu.com/p/31556278   
+
