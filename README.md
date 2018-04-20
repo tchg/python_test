@@ -23,3 +23,14 @@ http://www.dewen.net.cn/q/484/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BF%AB%E9%8
 
 https://zhuanlan.zhihu.com/p/31556278   
 
+pil库官方文档：http://pillow.readthedocs.io/en/latest/reference/index.html      
+I作为数组打开：
+
+>>> I = numpy.asarray(PIL.Image.open('test.jpg'))
+然后将其转换回图像：
+
+>>> im = PIL.Image.fromarray(numpy.uint8(I))
+
+image.tobytes()
+
+

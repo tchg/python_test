@@ -11,11 +11,11 @@ cut = ((0,0,1,1),(1,0,2,1),(2,0,3,1),(3,0,4,1),
 # 截屏函数，进行截屏
 def Screenshot(cut):
     im = ImageGrab.grab()
-    #im.save('zz.jpg')
-    (width,height) = im.size
-    width,height = width/4,height/4
-    for i in range(16):
-        Cut_up(im,width,height,cut[i]).save(str(i)+'.jpg')
+    im.save('zz.jpg')
+    # (width,height) = im.size
+    # width,height = width/4,height/4
+    # for i in range(16):
+    #     Cut_up(im,width,height,cut[i]).save(str(i)+'.jpg')
         
 # 进行切片处理
 def Cut_up(im, width, height, cut):
@@ -23,7 +23,7 @@ def Cut_up(im, width, height, cut):
     im = im.crop(cp)
     return im
 
-for i in range(5):
+for i in range(1):
     Screenshot(cut)
     print(1)
 new = datetime.datetime.now()
